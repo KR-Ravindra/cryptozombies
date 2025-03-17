@@ -130,7 +130,7 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.4.25;\n\ncontract ERC721 {\n  event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);\n  event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);\n\n  function balanceOf(address _owner) external view returns (uint256);\n  function ownerOf(uint256 _tokenId) external view returns (address);\n  function transferFrom(address _from, address _to, uint256 _tokenId) external payable;\n  function approve(address _approved, uint256 _tokenId) external payable;\n}\n",
-  "sourcePath": "/Users/sugandhab/CPSC559/cryptozombies/contracts/erc721.sol",
+  "sourcePath": "/Users/kr-ravindra/blockchain/cryptozombies/contracts/erc721.sol",
   "ast": {
     "absolutePath": "project:/contracts/erc721.sol",
     "exportedSymbols": {
@@ -1367,7 +1367,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.16",
-  "updatedAt": "2025-03-17T04:27:12.950Z",
+  "updatedAt": "2025-03-17T04:32:17.794Z",
   "devdoc": {
     "methods": {}
   },
