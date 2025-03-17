@@ -25,7 +25,7 @@ const ZombieApp = () => {
           const accounts = await web3Instance.eth.getAccounts();
           setWeb3(web3Instance);
           setAccount(accounts[0]);
-          const contractAddress = "0x871296286A5866669B8D84210E40f25B111e61d3"; // Update if needed
+          const contractAddress = "0xe4Fe61048ECF93757A19679e5FB931Bfdea683E3"; // Update if needed
           const contractInstance = new web3Instance.eth.Contract(cryptoZombiesABI, contractAddress);
           setCryptoZombies(contractInstance);
           console.log("Contract initialized:", contractInstance);
