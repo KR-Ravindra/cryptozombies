@@ -24,7 +24,7 @@ const ZombieApp = () => {
           const accounts = await web3Instance.eth.getAccounts();
           setWeb3(web3Instance);
           setAccount(accounts[0]);
-          const contractAddress = "0xFd2F74eaC86c7E4DcD3C17E286ca514fdE732bF6"; // Update if needed
+          const contractAddress = "0xe4Fe61048ECF93757A19679e5FB931Bfdea683E3"; // Update if needed
           const contractInstance = new web3Instance.eth.Contract(cryptoZombiesABI, contractAddress);
           setCryptoZombies(contractInstance);
           console.log("Contract initialized:", contractInstance);
@@ -125,7 +125,7 @@ const ZombieApp = () => {
         {zombies.map((zombie, index) => (
           <div className="col-md-4 zombie-card" key={index}>
             <div className="card spooky-card" onClick={() => { setSelectedZombie(zombie); setShowModal(true); }}>
-              <img src={getZombieImage(zombie.dna)} className="card-img-top" alt="Zombie" />
+              <img src={getZombieImage(zombie.dna + zombie.level)} className="card-img-top" alt="Zombie" />
               <div className="card-body">
                 <h5 className="card-title">{zombie.name}</h5>
                 <p className="card-text">Level: {zombie.level}</p>

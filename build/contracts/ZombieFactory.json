@@ -4957,54 +4957,14 @@
   },
   "networks": {
     "5777": {
-      "events": {
-        "0x88f026aacbbecc90c18411df4b1185fd8d9be2470f1962f192bf84a27d0704b7": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "name": "zombieId",
-              "type": "uint256"
-            },
-            {
-              "indexed": false,
-              "name": "name",
-              "type": "string"
-            },
-            {
-              "indexed": false,
-              "name": "dna",
-              "type": "uint256"
-            }
-          ],
-          "name": "NewZombie",
-          "type": "event"
-        },
-        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "name": "previousOwner",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "name": "newOwner",
-              "type": "address"
-            }
-          ],
-          "name": "OwnershipTransferred",
-          "type": "event"
-        }
-      },
+      "events": {},
       "links": {},
-      "address": "0x6cC2aAA6044f2F8f5C499B277336F55bEe9D6928",
-      "transactionHash": "0xdf99e3abd35a77b84ec7148ad36d7d3f384418387cf60c73bb3c4f094ab048a7"
+      "address": "0x6A9C93bEcc4c44e7e5b5EE7866E2679Dc8C39194",
+      "transactionHash": "0x561db2672d14021e346956103428d93f76613a6b816d183b28c827ae3b008a1e"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2025-03-17T02:46:33.187Z",
+  "updatedAt": "2025-03-17T04:27:21.110Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {

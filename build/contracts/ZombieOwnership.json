@@ -4253,98 +4253,14 @@
   },
   "networks": {
     "5777": {
-      "events": {
-        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "name": "_from",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "name": "_to",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "name": "_tokenId",
-              "type": "uint256"
-            }
-          ],
-          "name": "Transfer",
-          "type": "event"
-        },
-        "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "name": "_owner",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "name": "_approved",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "name": "_tokenId",
-              "type": "uint256"
-            }
-          ],
-          "name": "Approval",
-          "type": "event"
-        },
-        "0x88f026aacbbecc90c18411df4b1185fd8d9be2470f1962f192bf84a27d0704b7": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "name": "zombieId",
-              "type": "uint256"
-            },
-            {
-              "indexed": false,
-              "name": "name",
-              "type": "string"
-            },
-            {
-              "indexed": false,
-              "name": "dna",
-              "type": "uint256"
-            }
-          ],
-          "name": "NewZombie",
-          "type": "event"
-        },
-        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "name": "previousOwner",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "name": "newOwner",
-              "type": "address"
-            }
-          ],
-          "name": "OwnershipTransferred",
-          "type": "event"
-        }
-      },
+      "events": {},
       "links": {},
-      "address": "0xFd2F74eaC86c7E4DcD3C17E286ca514fdE732bF6",
-      "transactionHash": "0xc9f5370e9920b22314ab25ab5e808ea0deeedcf358219b0e39c39ea1c51b6e86"
+      "address": "0xe4Fe61048ECF93757A19679e5FB931Bfdea683E3",
+      "transactionHash": "0xf8608c2793e086a4a18ac4ac19adc594230174d5d11359cec48edd9e65bdaad2"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2025-03-17T02:46:33.195Z",
+  "updatedAt": "2025-03-17T04:27:21.119Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {
