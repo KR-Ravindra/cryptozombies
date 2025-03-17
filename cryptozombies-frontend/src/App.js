@@ -1,11 +1,13 @@
 import React from 'react';
+import './App.css';
 import ZombieApp from './components/ZombieApp';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <div className="App">
-      <ZombieApp />
+      <header className="App-header">
+        <ZombieApp />
+      </header>
     </div>
   );
 }

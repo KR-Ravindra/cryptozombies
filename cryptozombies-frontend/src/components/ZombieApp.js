@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
-import { cryptoZombiesABI } from './cryptozombies_abi';
-import './ZombieApp.css'; // Import the CSS file for styling
+import cryptoZombiesABI from './cryptozombies_abi.js';
 
 const ZombieApp = () => {
   const [web3, setWeb3] = useState(null);
@@ -19,7 +18,7 @@ const ZombieApp = () => {
           const accounts = await web3.eth.getAccounts();
           setWeb3(web3);
           setAccount(accounts[0]);
-          const cryptoZombiesAddress = "0x2fa0F28e4495931695980d147E2C7647E7299494"; // Replace with your deployed contract address
+          const cryptoZombiesAddress = "0xDD92E531F3D7A83ae6597c507c0990F7E5fbe5fA"; // Replace with your deployed contract address
           const cryptoZombies = new web3.eth.Contract(cryptoZombiesABI, cryptoZombiesAddress);
           setCryptoZombies(cryptoZombies);
           console.log("Contract instance initialized:", cryptoZombies);
@@ -31,7 +30,7 @@ const ZombieApp = () => {
         const accounts = await web3.eth.getAccounts();
         setWeb3(web3);
         setAccount(accounts[0]);
-        const cryptoZombiesAddress = "0x2fa0F28e4495931695980d147E2C7647E7299494"; // Replace with your deployed contract address
+        const cryptoZombiesAddress = "0xDD92E531F3D7A83ae6597c507c0990F7E5fbe5fA"; // Replace with your deployed contract address
         const cryptoZombies = new web3.eth.Contract(cryptoZombiesABI, cryptoZombiesAddress);
         setCryptoZombies(cryptoZombies);
         console.log("Contract instance initialized:", cryptoZombies);
@@ -42,6 +41,8 @@ const ZombieApp = () => {
 
     initWeb3();
   }, []);
+
+
 
   const getZombiesByOwner = async (owner) => {
     if (!cryptoZombies) {
@@ -92,6 +93,34 @@ const ZombieApp = () => {
     }
   };
 
+  const feedOnKitty = async (zombieId, kittyId) => {
+    if (!cryptoZombies) {
+      console.error("Contract instance not initialized");
+      return;
+    }
+    setTxStatus("Eating a kitty. This may take a while...");
+    try {
+      console.log("Feeding zombie with ID:", zombieId, "on kitty with ID:", kittyId);
+      await cryptoZombies.methods.feedOnKitty(zombieId, kittyId).send({ from: account, gas: 3000000 })
+        .on('transactionHash', function(hash){
+          console.log("Transaction hash:", hash);
+        })
+        .on('receipt', function(receipt){
+          console.log("Transaction receipt:", receipt);
+          setTxStatus("Ate a kitty and spawned a new Zombie!");
+          getZombiesByOwner(account);
+        })
+        .on('error', function(error, receipt) {
+          console.error("Error feeding on kitty:", error);
+          console.error("Transaction receipt:", receipt);
+          setTxStatus("Error feeding on kitty: " + error.message);
+        });
+    } catch (error) {
+      console.error("Error feeding on kitty:", error);
+      setTxStatus("Error feeding on kitty: " + error.message);
+    }
+  };
+
   const levelUp = async (zombieId) => {
     if (!cryptoZombies) {
       console.error("Contract instance not initialized");
@@ -125,6 +154,10 @@ const ZombieApp = () => {
     }
   };
 
+  const displayZombies = (zombieDetails) => {
+    setZombies(zombieDetails);
+  };
+
   return (
     <div className="container spooky-background">
       <div className="alert alert-info" role="alert">{txStatus}</div>
@@ -148,6 +181,7 @@ const ZombieApp = () => {
       <div className="btn-group spooky-buttons" role="group" aria-label="Zombie Actions">
         <button className="btn btn-primary spooky-button" onClick={() => getZombiesByOwner(account)}>Show Zombies</button>
         <button className="btn btn-success spooky-button" onClick={() => createRandomZombie("Zombie" + Math.floor(Math.random() * 1000))}>Create Zombie</button>
+        <button className="btn btn-warning spooky-button" onClick={() => feedOnKitty(1, 1)}>Feed on Kitty</button> {/* Example IDs */}
       </div>
     </div>
   );

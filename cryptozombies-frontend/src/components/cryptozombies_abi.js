@@ -1,4 +1,4 @@
-export const cryptoZombiesABI =  [
+const cryptoZombiesABI =  [
   {
     "constant": false,
     "inputs": [
@@ -426,3 +426,5 @@ export const cryptoZombiesABI =  [
     "type": "function"
   }
 ];
+
+export default cryptoZombiesABI;
