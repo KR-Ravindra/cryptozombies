@@ -119,17 +119,23 @@ const ZombieApp = () => {
       setLoading(false);
     }
   };
-
   const changeZombieName = async (zombieId, newName) => {
     setType("");
     if (!cryptoZombies) return;
     setTxStatus("Changing name... Please wait.");
     setLoading(true);
+    let isFetching = false; // Add a flag to check if the function is already running
+  
     try {
       await cryptoZombies.methods.changeName(zombieId, newName).send({ from: account, gas: 3000000 })
         .on("receipt", () => {
           setTxStatus("Zombie name changed!");
-          getZombiesByOwner(account);
+          if (!isFetching) { // Check if the function is already running
+            isFetching = true;
+            getZombiesByOwner(account).finally(() => {
+              isFetching = false; // Reset the flag after the function completes
+            });
+          }
         });
     } catch (error) {
       setTxStatus("Error changing name: " + error.message);
@@ -166,7 +172,7 @@ const ZombieApp = () => {
       <div className="welcome-message">
         {hasZombies ? (
           <>
-            <h2>Welcome back!</h2>            
+            <h2><span style={{ color: 'red' }}>Welcome back</span> <span style={{ color: 'white' }}>{account}!</span></h2>            
             <div className="row">
               {zombies.map((zombie, index) => (
                 <div className="col-md-4 zombie-card" key={index}>
@@ -202,7 +208,7 @@ const ZombieApp = () => {
           </>
         ) : (
           <>
-            <h2>Welcome!</h2>
+            <h2><span style={{ color: 'red' }}>Welcome </span> <span style={{ color: 'white' }}>{account}!</span></h2>
             <Button variant="success create-zombie spooky-button" onClick={() => createRandomZombie("Zombie" + Math.floor(Math.random() * 1000))}>
             Create Zombie
             </Button>
