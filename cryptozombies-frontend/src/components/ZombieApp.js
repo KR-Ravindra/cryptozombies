@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
 import cryptoZombiesABI from './cryptozombies_abi.js';
+import './ZombieApp.css';
 
 const ZombieApp = () => {
   const [web3, setWeb3] = useState(null);
