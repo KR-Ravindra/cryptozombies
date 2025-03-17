@@ -25,7 +25,7 @@ const ZombieApp = () => {
           const accounts = await web3Instance.eth.getAccounts();
           setWeb3(web3Instance);
           setAccount(accounts[0]);
-          const contractAddress = "0xe4Fe61048ECF93757A19679e5FB931Bfdea683E3"; // Update if needed
+          const contractAddress = "0xa419BcB1C2482Ea7A37b671F0A96b0465cAf83cf"; // Update if needed
           const contractInstance = new web3Instance.eth.Contract(cryptoZombiesABI, contractAddress);
           setCryptoZombies(contractInstance);
           console.log("Contract initialized:", contractInstance);
@@ -72,7 +72,7 @@ const ZombieApp = () => {
         return { id: id.toString(), ...zombie };
       }));
       setZombies(details);
-      setTxStatus("Zombies loaded!");
+      setTxStatus("!! Zombies by Team Decentralised !!");
       if (details.length > 0){
         setSelectedZombie(details[0]);
       }
