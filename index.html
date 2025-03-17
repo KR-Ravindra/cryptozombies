@@ -25,7 +25,7 @@
     const levelupButton = document.querySelector('.levelupButton');
 
     function startApp() {
-      var cryptoZombiesAddress = "0x2fa0F28e4495931695980d147E2C7647E7299494"; // Replace with your deployed contract address
+      var cryptoZombiesAddress = "0xFd2F74eaC86c7E4DcD3C17E286ca514fdE732bF6"; // Replace with your deployed contract address
       cryptoZombies = new web3.eth.Contract(cryptoZombiesABI, cryptoZombiesAddress);
 
       cryptoZombies.events.Transfer({ filter: { _to: userAccount } })
