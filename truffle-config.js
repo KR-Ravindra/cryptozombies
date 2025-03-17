@@ -18,6 +18,7 @@
  *
  */
 const HDWalletProvider = require('@truffle/hdwallet-provider');
+
 require('dotenv').config(); // Load environment variables from .env file
 
 const mnemonic = process.env.MNEMONIC;
@@ -45,16 +46,16 @@ module.exports = {
     // options below to some value.
     //
      development: {
-      host: "127.0.0.1",     // Localhost (default: none)
+     host: "127.0.0.1",     // Localhost (default: none)
      port: 7545,            // Standard Ethereum port (default: none)
      network_id: "5777",       // Any network (default: none)
      },
      sepolia: {
-      provider: () => new HDWalletProvider(mnemonic, `https://sepolia.infura.io/v3/${infuraProjectId}`),
+      provider: () => new HDWalletProvider(mnemonic, `https://eth-sepolia.g.alchemy.com/v2/mEztbS_yobgjYbpLZ8RfoM21aw4UEfuQ`),
       network_id: 11155111,  // Sepolia's network id
       gas: 5500000,          // Gas limit
       confirmations: 2,      // # of confirmations to wait between deployments
-      timeoutBlocks: 200,    // # of blocks before a deployment times out
+      timeoutBlocks: 500,    // # of blocks before a deployment times out
       skipDryRun: true       // Skip dry run before migrations
     },
     // Another network with more advanced options...

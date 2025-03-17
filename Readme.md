@@ -3,15 +3,16 @@
 | Name | CWID | Email |
 | ----------- | ----------- | ----------- |
 | Raja Ravindra Kathi | 885164749 | ravindra.kathi@csu.fullerton.edu |
-| Sugandha Bhandari |  | |
-| Manjari Bhavanasi | | |
-| Chaithanya Pedavalli | | |
+| Sugandha Bhandari | 885147587	 | sugandha.bhandari@csu.fullerton.edu |
+| Manjari Bhavanasi | 872441514 | manjaribhavanasi@csu.fullerton.edu |
+| Chaithanya Pedavalli | 829448224 | chaithanya@csu.fullerton.edu |
 
-Video Demo [here](https://youtu.be/63zC_D6Hbd8).
+Video Demo [here](https://youtu.be/QmVku--p6ik).
 
 
 # Improvements
- 
+
+- [x] Sepolia Testnet Deployment
 - [x] Generate unique zombie image with DNA + Level by integration with robohash
 - [x] Revamped the UI
 - [x] Welcome and identify new vs old user

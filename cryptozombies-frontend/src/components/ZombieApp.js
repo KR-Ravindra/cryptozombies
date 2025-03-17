@@ -15,6 +15,7 @@ const ZombieApp = () => {
   const [loading, setLoading] = useState(false);
   const [hasZombies, setHasZombies] = useState(false);
   const [type, setType] = useState("?set=set2");
+  const [imageLoading, setImageLoading] = useState(true); // Add state for image loading
 
   useEffect(() => {
     const initWeb3 = async () => {
@@ -177,7 +178,14 @@ const ZombieApp = () => {
               {zombies.map((zombie, index) => (
                 <div className="col-md-4 zombie-card" key={index}>
                   <div className="card spooky-card" onClick={() => { setSelectedZombie(zombie); setShowModal(true); }}>
-                    <img src={getZombieImage(zombie.dna + zombie.level)} className="card-img-top" alt="Zombie" />
+                    {imageLoading && <p>Fetching image...</p>}
+                    <img
+                      src={getZombieImage(zombie.dna + zombie.level)}
+                      className="card-img-top"
+                      alt="Zombie"
+                      onLoad={() => setImageLoading(false)} // Set image loading to false when image loads
+                      onError={() => setImageLoading(false)} // Handle image load error
+                    />
                     <div className="card-body">
                       <h5 className="card-title">{zombie.name}</h5>
                       <p className="card-text">Level: {zombie.level}</p>
